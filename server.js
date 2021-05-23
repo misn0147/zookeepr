@@ -8,6 +8,8 @@ const app = express();
 app.use(express.urlencoded({ extended: true}));
 // parese incoming JSON data
 app.use(express.json());
+// this informes the server of the file path containing the CSS and other assets. Having static resources means that all of our front-end code can now be accessed without having a specific server endpoint created for it
+app.use(express.static('public'));
 const { animals } = require('./data/animals.json')
 
 function filterByQuery(query, animalsArray) {
@@ -101,6 +103,18 @@ app.post('/api/animals', (req, res) => {
     const animal = createNewAnimal(req.body, animals);
     res.json(animal);
     }
+});
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
+app.get('/animals', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/animals.html'));
+});
+app.get('/zookeepers', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/zookeepers.html'));
+});
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
 });
 app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}!`);
