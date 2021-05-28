@@ -1,0 +1,29 @@
+{
+  "name": "pack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "inquirer": "^8.1.0",
+    "jest": "^27.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/misn0147/zookeepr.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/misn0147/zookeepr/issues"
+  },
+  "homepage": "https://github.com/misn0147/zookeepr#readme"
+}
